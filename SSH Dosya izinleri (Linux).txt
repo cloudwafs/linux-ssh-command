@@ -1,0 +1,5 @@
+find . -type d -exec chmod 755 {} \;
+find . -type f -exec chmod 644 {} \;
+find . -iname "*.gif" -o -iname "*.jpg" -exec chmod 644 {} \;
+find . -type d -exec chown kullanýcýadý.kullanýcýadý {} \;
+find . -type f -exec chown kullanýcýadý.kullanýcýadý {} \;

@@ -1,0 +1,42 @@
+Pre installation Redis
+
+
+#update and upgrade the linux
+yum -y update
+yum -y upgrade
+
+#I like nano
+yum install -y nano
+
+#Install gcc & tcl, needed for compilation
+yum install -y gcc*
+yum install -y tcl
+
+
+------------------------------------------------------------
+
+
+Install Redis
+
+
+wget http://download.redis.io/releases/redis-3.0.1.tar.gz
+tar xzf redis-3.0.1.tar.gz
+cd redis-3.0.1
+make
+make test
+make install
+cd utils
+chmod +x install_server.sh
+./install_server.sh
+sudo chkconfig --level 2345 redis on
+
+
+------------------------------------------------------------
+
+
+Check Redis status/start/stop
+
+
+
+service redis_6379 status
+service redis_6379 start

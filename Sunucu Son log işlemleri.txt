@@ -1,0 +1,33 @@
+Kod:
+#last –f /var/log/wtmp
+Shutdown (halt) sistemi kapatýr
+Aþaðýdaki gibi komut girilirse sistem beklemeden kapanýr.
+Kod:
+# shutdown -h 0
+Kod:
+# shutdown -h NOW
+Bununla birlikte bu komut ile sunucudaki kullanýcýlarýn dosyalarýný kaydetmelerine izin vermez aþaðýdaki komut ile kullanýcýlara kapatma uyarýsýný bildirmek daha uygun olacaktýr.
+Kod:
+# shutdown +5 “*** Server kapatýlacaktýr… Dosyalarýnýzý kaydedin… ***”
+Planlanmýþ sistem kapatma komutu
+Shutdown komutu ile aþaðýdaki parametreleri kullanarak zaman ayarlý sistemi kapatabilir.
+Kod:
+# shutdown 1:00 SERVER DOWN”
+Kod:
+# shutdown 18:00 SERVER DOWN”
+Ýlk önce sunucu 1 de ve ikinci olarak 6 da kapanacaktýr.(24 saatlik formata göredir)
+Sistemin kapanma ya da reboot zamanýný nasýl bulabilirim
+Þimdi en heyecanlý bölüm geliyor, sistemin son kapanma ya da reboot zamaný nasýl bulunur, genellikle yeni Unix/Linux adminleri hemen çözüm bulamayabilir. Sistemin açýlýp kapanmasý sonucu /var/log/wtmp dosyasýný oluþturur, oluþan bu dosyayý açýp düzenlemeye çalýþmaþýn çünkü 2 lik sistemde oluþuyor, fakat bu dosyayý last komutu ile görüntüleye bilirsiniz.
+Son reboot olayý listesini görüntüleme
+Last komutu ile rebootlarý görmek için aþaðýdaki komutu yazabilirsiniz.
+Kod:
+#last reboot | less
+Son kapanma listesini görüntüleme(çalýþma düzeyi deðiþikliði dahil)
+Komutu aþaðýdaki gibi girebilirsiniz.
+Kod:
+#last -x | less
+Hatta aþaðýdaki þekilde de yapabilirsiniz.
+Kod:
+# last -x | grep shutdown | less
+Not: /var/log/wtmp dosyasý log dosyasý olup daha önceki sistem giriþleri ve çýkýþlarý, dosya eriþim bilgileri gibi bilgileri içerir.
+Bu komut freebsd ve diðer unix ve benzeri sistemlerde çalýþýr

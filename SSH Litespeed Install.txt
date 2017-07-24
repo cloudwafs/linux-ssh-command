@@ -1,0 +1,42 @@
+Kurulum:
+
+cd /usr/src
+wget http://www.litespeedtech.com/packages/cpanel/lsws_whm_plugin_install.sh
+chmod 700 lsws_whm_plugin_install.sh
+./lsws_whm_plugin_install.sh
+rm -f lsws_whm_plugin_install.sh
+
+#############################################
+
+Silmek için (Kaldýrma):
+
+sh /usr/local/cpanel/whostmgr/docroot/cgi/lsws/lsws_whm_plugin_uninstall.sh
+
+#############################################
+
+Bazý özel durumlarla ilgili bilgiler
+Build matching PHP binary iþleminde memory hatasý almanýz durumunda WHM panel üzerinden Tweak Settings kýsmýna geçerek “Max cPanel process memory” bölümünü 512MB olarak tanýmlayabilirsiniz.
+
+Build matching PHP binary iþlemi alt kýsýmdaki komut yardýmý ile konsoldan da yapýlabilir.
+
+sh /usr/local/cpanel/whostmgr/cgi/lsws/cmd_buildmatchingphp.sh
+
+##############################################
+
+Litespeed Admin arayüzünde; Configuration bölümünden Server menüsüne geçip Security tabýna geçip File Access tablosunun baþýndaki Edit butonuna basarak burada;
+
+Follow Symbolic Link: No
+Check Symbolic Link: Yes
+
+
+olarak ayarlayýp tablodaki Save butonuna basýp kaydedin. Bu symlink dosyalarýnýn web servisi üzerinden çalýþmasýna engel olacaktýr. Güvenlik için önemlidir.
+
+Yine Admin arayüzünde General kýsmýna týklayýn ve Using Apache Configuration File tablosundaki Edit butonuna basýn. Burada sadece PHP suEXEC Max Conn deðerini 100 yaparak kayýt edin. Bu kurulum esnasýnda PHP suEXEC çalýþtýranlarýn yapmasý gereken bir iþlemdir. Bir web sitesinde 100 iþlem yapýlmasýna olanak saðlar. Default deðer 10 olarak gelmekte ve hitli web sitelerinde sorun yaratabilmektedir.
+
+Admin arayüzünde; External App bölümüne girin ve lsphp4 satýrýnýn sonundaki Delete butonuna basýp lsphp4 kaldýrýn. Yine tablardan Script Handler bölümüne girip php4 ü buradan da Delete yapýn. PHP4 artýk kullanýlmadýðýndan güvenlik riskine karþýn kesinlikle kaldýrýlmasýný öneriyoruz.
+
+Eðer sunucunuzda CloudLinux var ise General kýsmýnda Server Process bölümünden Litespeed’i CloudLinux a uygun çalýþtýrabilirsiniz.
+
+Ayarlarda deðiþiklik yaptýktan sonra; Configuration has been modified. To apply changes, please visit Control Panel and execute a Graceful Restart. Apply Changes kýsmý Admin arayüzü üzerinde belirmektedir. Buradaki Apply Changes linkine týklayýn, sonra Action kýsmýndan Gracefull Restart a basýp litespeed servisini restart edin yaptýðýnýz deðiþiklikler bu þekilde aktif olacaktýr.
+
+Son olarak Actions menüsü üzerinden Real-Time Stats kýsmýndan canlý istatislikleri takip edebilir, Configuration kýsmýndan Server kýsmýna geçerek Tuning tabýnda sunucunuz ile ilgili baðlantý limitlerini düzenleyerek web servisinizi kendinize göre optimize edebilirsiniz. Eðer 2 CPU ve üzeri CPU sayýsýna sahip bir Litespeed kullanýyorsanýz ücretsiz Cache özelliðine de bu bölümden eriþebilir ve kendinize göre düzenleyebilirsiniz.

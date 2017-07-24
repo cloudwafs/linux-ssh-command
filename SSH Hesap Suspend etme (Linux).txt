@@ -1,0 +1,10 @@
+cpanel ile ssh den kullanýcý Hesabýný Suspend Etme durdurma
+cpanel ile ssh den kullanýcý Hesabýný Suspend Etme durdurma
+
+
+Hesap Suspend Etme : /scripts/suspendacct useradi
+Hesap Suspend Kaldýrma:  /scripts/unsuspendacct useradi
+user adýný hatýrlamýyorum diyorsanýz.
+cd home
+ls
+ile yum userleri gormeniz mumkun.

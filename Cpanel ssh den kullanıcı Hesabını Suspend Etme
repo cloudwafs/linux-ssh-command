@@ -1,0 +1,2 @@
+Hesap Suspend Etme : /scripts/suspendacct useradi
+Hesap Suspend Kaldırma:  /scripts/unsuspendacct useradi

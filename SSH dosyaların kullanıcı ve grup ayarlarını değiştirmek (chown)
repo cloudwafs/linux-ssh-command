@@ -1,0 +1,60 @@
+1. yontem
+
+asagidaki parametreleri sirasi ile girerseniz, yada size gerekli kismi alip girerseniz sectiginiz dizindeki dosyalarin kullanici yada grup ayarlari belirttiginiz sekilde degisecektir.
+
+
+# Sadece kullanici ayarlarini degistirme
+chown -R kullanici_adi /home/site_dosyalari/*
+
+# Sadece Grup ayarlarini degistirme
+chgrp -R grup_adi /home/site_dosyalari/*
+
+#yada sadece grup ayarini degistirmek icin asagidaki yontemi kullanabilirsiniz
+chown -R :grup_adi /home/site_dosyalari/*
+
+
+# Sadece kullanici ayarlarini degistirme
+chown -R kullanici_adi /home/site_dosyalari/*
+ 
+# Sadece Grup ayarlarini degistirme
+chgrp -R grup_adi /home/site_dosyalari/*
+ 
+#yada sadece grup ayarini degistirmek icin asagidaki yontemi kullanabilirsiniz
+chown -R :grup_adi /home/site_dosyalari/*
+2. yontem
+
+Bu yontem tek bir kod ile hem kullanici, hemde grup ayarlarini degistirmeye yariyor.
+
+
+#Hem kullanici hemde grup ayarlarini degistirir
+chown -R kullanici_adi:grup_adi /home/site_dosyalari/*
+
+
+#Hem kullanici hemde grup ayarlarini degistirir
+chown -R kullanici_adi:grup_adi /home/site_dosyalari/*
+ Bilgilendirme
+
+Ayarlarini degistirmek istediginiz bir klasorun icerisindeki butun dosyalar ise eger en sonuna * isareti koyarak icerigindeki butun dosyalar diye belirtme yapiyoruz. Yada koymayarak sadece klasorun ayarlarini degistirebilirsiniz. Daha fazla detaya asagidaki ornegimizde ulasabilirsiniz.
+
+
+# site dosyalari klasoru icerisindeki butun dosyalar
+/home/site_dosyalari/*
+
+# Sadece site dosyalari klasoru
+/home/site_dosyalari
+
+# sadece yildiz koyarsaniz, o an bulundugunuz yerde bulunan butun dosyalarin ayarini degistirir, bunu kullanirken oldugunuz yere iyi bakin :)
+* ile ilgili daha fazla detaya ssh terminalindeyken asagidaki kodu yazarak ulasabilirsiniz.
+
+
+# site dosyalari klasoru icerisindeki butun dosyalar
+/home/site_dosyalari/*
+ 
+# Sadece site dosyalari klasoru
+/home/site_dosyalari
+ 
+# sadece yildiz koyarsaniz, o an bulundugunuz yerde bulunan butun dosyalarin ayarini degistirir, bunu kullanirken oldugunuz yere iyi bakin :)
+* ile ilgili daha fazla detaya ssh terminalindeyken asagidaki kodu yazarak ulasabilirsiniz.
+
+man chown
+

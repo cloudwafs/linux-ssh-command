@@ -1,0 +1,6 @@
+dmesg
+netstat -an
+
+veya > 
+
+top -c

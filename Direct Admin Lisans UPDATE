@@ -1,0 +1,9 @@
+
+***Aşağıdaki komutlar sırasıyla uygulanacaktır.
+
+
+cd /usr/local/directadmin/scripts
+
+./getLicense.sh 22560 "Lisans kodu"
+
+service directadmin restart

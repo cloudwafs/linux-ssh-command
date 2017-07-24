@@ -1,0 +1,47 @@
+Sýrasýyla:
+
+Ýstediðiniz portu izlemek istiyorsanýz .
+
+netstat -an | grep :port numarasý
+
+
+
+80 portu yani web portunu izlemek için
+
+netstat -an | grep :80
+
+
+
+
+Gereksiz ipleri kaldýrmak için sadece fazla istek yapan ipleri tespit etmek istiyorsanýz
+
+netstat -an | grep :80 | wc -l
+
+Bu komutlar ile sunucunuza gelen istekleri görebilirsiniz.
+
+
+
+Tespit etitðiniz ip adresini banlamak için ( iptables ip banlama )
+
+iptables -I INPUT -s ipadresi -j DROP
+
+
+
+ip adresini de engelledikten sonra ufak çaplý saldýrýnýn önüne geçmiþ oluyoruz.
+
+
+
+##############################################################################################################
+
+
+
+netstat -np | grep SYN_RECV | awk '{print $5}' | cut -d. -f1-4 | cut -d: -f1 | sort -n | uniq -c | sort -n
+
+
+
+
+eðer boþ çýkarsa syn saldýrýsý yoktur.lakin yanýnda 2-5-78-345 gibi sayýlar olan ip ler çýkarsa syn saldýrý alýyorsunuz demektir.Yanlarýndaki sayý ne kadar yüksekse bu saldýrý o kadar þiddetli demektir.büyük ihtimal apache düþecek ve siteler eriþime kapanacakdýr.syn saldýrýlarda cpu veya ram kullanýmý yükselmez.anlamak pek basit deðildir.
+
+udp saldýrýlarýnda ise sunucu cpu,ram ve network kullanýmý oldukça yükselir.iþlemci tavan yapar.bu tür saldýrýlarý anlamanýn zor olmadýðýný biliyoruz
+
+netstat -n komutuyla baktýðýmýzda time_wait çok fazla ve ayný ip den ise udp dir.açýk bir þekilde udp saldýrýlarý ayýrt edilebilir.

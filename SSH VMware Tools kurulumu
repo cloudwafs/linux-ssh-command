@@ -1,0 +1,13 @@
+# mkdir /media/cdrom
+
+# mount /dev/cdrom /media/cdrom
+
+# cp /media/cdrom/VM* /tmp
+
+# cd /tmp
+
+# tar zxvf VM*
+
+# cd vmware-tools-distrib/
+
+# ./vmware-install.pl

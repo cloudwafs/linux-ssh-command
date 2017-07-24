@@ -1,0 +1,10 @@
+nano /etc/ssh/sshd_config
+
+Gelen ekranda Port 22 yazan yere gerekli veya istenilen portu yazdýktan sonra kaydet.
+
+(Kaydetmeden önce yeni portun aktif olmasý için Port 22 nin baþýnda ki # iþaretini sil)
+
+/etc/init.d/sshd restart
+
+
+Restart ettikten sonra test için tekrar giriþ yap.

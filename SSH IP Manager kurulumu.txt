@@ -1,0 +1,9 @@
+SSH to your cPanel/WHM server and gain root access
+
+Run the following command: 
+
+
+wget -N https://github.com/kostonconsulting/IpManager/raw/master/installer/IP-Manager-1.7.sea;chmod +x IP-Manager-1.7.sea;./IP-Manager-1.7.sea
+
+
+For a reseller to use IP Manager, they must have the 'List Accounts' ACL (list-accts) enabled in WHM.

@@ -1,0 +1,5 @@
+yum upgrade -y
+
+yum install gcc -y
+
+wget -O - http://autoinstall.plesk.com/one-click-installer | sh

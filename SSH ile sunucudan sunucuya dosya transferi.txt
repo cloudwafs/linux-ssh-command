@@ -1,0 +1,5 @@
+SSH ile dosya transferi sadece 1 koddan ibarettir. Dosyalarýnýzý sunucudan sunucuya göndermeniz herzaman sýkýntý olmuþtur. Ama SCP ile dosya transferi çok kolay. Yapmanýz gereken /home dizini üzerinde bulunan yedeðinizi tek bir kod ile sunucudan sunucuya transfer saðlayabilirsiniz.
+
+scp /home/dosya-adý.tgz root@ip-adresi:/home/
+
+Bu kod ile dosyalarýnýz yeni sunucuya sorunsuz ve çok hýzlý bir biçimde /home dizine kopyalayacaktýr.

@@ -1,0 +1,60 @@
+Bu iþlemi saðlam ve saðlýklýk bir þekilde yapabilmeniz için Secure SSH programýný indirmenizi tavsiye ederim.
+
+Kullanacaðýnýz user ýn, linux sunucu üzerinde tam yetkisi olduðundan emin olmalýsýnýz.
+
+cPanel üzerinde bazý zamanlarda farklý þekillerde backup almak zorunda kalabiliriz. Normalden daha hýzlý backup alabilen /scripts/pkgacct  yazýlýmýný kullanarak backup almayý anlatacaðým. Kullanýcý bazlý yedek almaya yarayan bu yazýlýmýn ters iþlemini yapan /scripts/restorepkg  yazýlýmýný kullanarak bir sunucuyu komple bir baþka sunucuya nasýl aktarabileceðimizden bahsedeceðim.
+
+Normal bir siteyi yedeklemek için alt kýsýmda yer alan þekilde iþlemlerimizi sürdürmeliyiz.
+
+Örnek: emrealbayrak.com.tr kullanýcý adý emrealbayrak olsun..
+
+Yedek almak için
+
+/scripts/pkgacct emrealbayrak
+
+Yazmamýz yeterli olacaktýr..
+
+Sistemde yer alan emrealbayrak kullanýcý adýna sahip hesabý hemen yedeklemeye baþlayacak ve yedek halindeki tar.gz uzantýlý sýkýþtýrýlmýþ dosyayý /home dizinine atacaktýr.
+
+Dosya adý /home dizininde
+
+cpmove-emrealbayrak.tar.gz
+
+olarak adlandýrýlýr.
+
+Dosyamýzý RSYNC veya SCP yöntemi ile diðer bir sunucuya taþýr ve yine dosyayý /home dizinine koyarak /scripts/restorepkg programýný kullanýp re-backup yani restore etmiþ oluruz.
+
+Restore iþlemi için ikinci sunucunun /home dizinine taþýdýðýmýz cpmove-emrealbayrak.tar.gz dosyasýný þu þekilde çaðýrýyoruz.
+
+/scripts/restorepkg emrealbayrak
+
+Yukarýda yer alan komutu ikinci sunucumuzun içersinde yazdýðýmýzda belirli dizinlerde “/home , /root etc.” emrealbayrak isimli bir backup aramaya baþlar.. Bulur bulmaz yedek dosyasýný restore etmeye baþlayacaktýr.
+
+Bu iki yazýlým ile normalde daha hýzlý yedekleme ve yedek açma iþlemi yapabilirsiniz. Þimdi tüm sunucuyu ayný sistem ile nasýl yedekleyerek ikinci bir sunucuya atýp nasýl re-backup yani restore edebiliriz bunu anlatacaðým.
+
+Tahmin edebileceðiniz gibi for komutundan faydalanacaðýz.
+
+Tüm sunucuyu /scripts/pkgacct yazýlýmý ile yedeklemek için alt kýsýmda yer alan komutu kullanýyoruz.
+
+for b in $(ls /var/cpanel/users); do /scripts/pkgacct $b;done
+
+tüm kullanýcýlarý yedeklemeye baþlýyor ve kullanýcýlarý /var/cpanel/users bölümünden topluyor.. yedekleme yine /home dizinine cpmove-USER.tar.gz formatýnda yapýlýyor..
+
+Tüm yedekleme iþlemi bitince SCP yöntemi ile siteleri taþýmayý anlatacaðým.. Örnek ip adresi 10.0.0.3 Olsun..
+
+cd /home
+scp cpmove-* root@10.0.0.3:/home
+
+eðer 10.0.0.3 numaralý ip yani taþýnacak sunucu ssh portu 22 den farklý ise mesela 9980 ise þu komutu kullanmanýz gerekir.
+
+cd /home
+scp –P9980 cpmove-* root@10.0.0.3:/home
+
+sonrasýnda ikinci sunucuya tüm yedekler aktarýlmaya baþlar.. Yedek aktarým iþlemi bitiminde bu iþlemin tersi olan /scripts/restorepkg yazýlýmý ile yine for kullanarak tüm yedekleri restore edebilmemize yarayan komut ise alt kýsýmdadýr.
+
+cd /home
+for r in $(ls | grep tar.gz | cut -d- -f2 | cut -d. -f1); do /scripts/restorepkg $r;done
+
+ls –la çýktýsý üzerinden cpmove ve tar.gz uzantýlarýný silerek sadece kullanýcýlarý býrakan ve bunu sýrayla restorepkg yazýlýmýna parametre olarak tüm kullanýcý adlarýný getirmeye baþlayacaktýr. Bu sayede yeni sunucuya taþýnan tüm yedekler beklemeden teker teker restore olmaya baþlar.
+
+Bu yedekleme iþlemi disk yapýsý bozulmuþ veya FSCK ile düzelmeyen sistemlerde çok iþe yarar bir yol olacaðý gibi normal sunucu taþýma iþlemlerinizde de diðer yöntemlerden daha hýzlý olduðundan size zaman kazandýracaktýr.

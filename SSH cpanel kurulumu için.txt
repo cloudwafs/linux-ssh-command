@@ -1,0 +1,1 @@
+yum install gcc -y; yum install gcc-c++ -y; yum install make -y; wget layer1.cpanel.net/latest; sh latest

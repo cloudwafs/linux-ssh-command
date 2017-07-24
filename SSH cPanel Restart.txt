@@ -1,0 +1,5 @@
+service cpanel restart
+
+
+
+Tüm Servisleri restart eder....

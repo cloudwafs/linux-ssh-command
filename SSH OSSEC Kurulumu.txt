@@ -1,0 +1,30 @@
+rpm -Uvh http://download.fedoraproject.org/pub/epel/6/x86_64/epel-release-6-5.noarch.rpm
+
+
+
+wget https://www.atomicorp.com/installers/atomic && sudo chmod +x atomic && sudo ./atomic
+
+
+
+yum install ossec-hids ossec-hids-server
+
+
+
+Baþlat: service ossec-hids start
+
+#################################################################
+
+Konfigürasyon: ls /usr/share/ossec/contrib/
+
+
+ls /var/ossec/
+
+
+
+/var/ossec/etc/ossec.conf
+
+#################################################################
+
+Servis Baþlatma...
+
+/var/ossec/bin/ossec-control start

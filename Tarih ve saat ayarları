@@ -1,0 +1,12 @@
+date +%T -s "23:55:13"
+
+
+#date -s "16 MAR 2011 10:16:19"
+Wed Mar 16 10:16:19 EET 2011
+
+
+
+Tarih ve saat ayarlama:  tzselect
+
+
+Sorgulama: date

@@ -1,0 +1,115 @@
+TMP dizinine gidelim:
+
+
+cd /tmp
+1
+cd /tmp
+Dizin boyutunu öğrenelim:
+
+
+du -sh
+1
+du -sh
+Doluluk oranını öğrenelim:
+
+
+df -h
+1
+df -h
+Şimdi session dosyalarını silelim:
+
+
+rm -rf sess_*
+rm -rf *
+1
+2
+rm -rf sess_*
+rm -rf *
+Servisleri yeniden başlatalım:
+
+
+service mysql restart
+service httpd restart
+1
+2
+service mysql restart
+service httpd restart
+Eğer eaccerlator sunucunuzda kuruluysa şu işlemleri de gerçekleştirin:
+
+
+tmpwatch --mtime --all 336 /tmp/eaccelerator
+1
+tmpwatch --mtime --all 336 /tmp/eaccelerator
+php.ini ye gidelim:
+
+
+nano /usr/lib/php.ini
+1
+nano /usr/lib/php.ini
+Bulalım (CTRL+W):
+
+
+eaccelerator.cache_dir=”/tmp/eaccelerator
+1
+eaccelerator.cache_dir=”/tmp/eaccelerator
+Şu şekilde  değiştirelim:
+
+
+/var/cache/eaccelerator
+1
+/var/cache/eaccelerator
+En son klasörü de oluşturarak bu adımı geçelim:
+
+
+mkdir /var/cache/eaccelerator
+1
+mkdir /var/cache/eaccelerator
+
+service httpd stop
+rm -rf /tmp/eaccelerator
+service httpd start
+1
+2
+3
+service httpd stop
+rm -rf /tmp/eaccelerator
+service httpd start
+TMP dizin boyutunu büyüterek problemi kökten çözmeye çalışalım:
+
+
+nano -w /scripts/securetmp
+1
+nano -w /scripts/securetmp
+my $tmpdsksize satırını bulup değerini 512000 den 2048000 olarak değiştirin
+
+TMP boyutunu da arttırdık. Aşağıdaki komutları uygulayalım:
+
+
+/bin/umount -l /tmp
+/bin/umount -l /var/tmp
+/bin/rm -fv /usr/tmpDSK
+/scripts/securetmp
+/scripts/restartsrv_mysql
+/scripts/restartsrv_httpd
+1
+2
+3
+4
+5
+6
+/bin/umount -l /tmp
+/bin/umount -l /var/tmp
+/bin/rm -fv /usr/tmpDSK
+/scripts/securetmp
+/scripts/restartsrv_mysql
+/scripts/restartsrv_httpd
+TMP’yi yükselttik, şimdi de içini boşaltalım:
+
+
+cd /tmp/
+rm -rfv sess*
+1
+2
+cd /tmp/
+rm -rfv sess*
+

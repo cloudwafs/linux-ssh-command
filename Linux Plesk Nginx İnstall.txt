@@ -1,0 +1,34 @@
+How to enable Nginx reverse proxy in Plesk
+
+Symptoms
+
+How to enable the Nginx service in Plesk.
+
+
+
+Resolution
+
+Install the Nginx component using the Plesk autoinstaller /usr/local/psa/admin/sbin/autoinstaller , or using the Plesk Update and Upgrade web interface.
+
+After the installation, you can enable the Nginx service via the Plesk web interface or via the command line utility.
+
+To enable the Reverse Proxy Server (Nginx) service in the Plesk web interface:
+
+Go to Tools & Settings > Services Management and enable the Nginx service.
+
+To enable the Reverse Proxy Server (Nginx) service via the command line:
+
+# /usr/local/psa/admin/sbin/nginxmng -e
+To disable Nginx, use this command:
+
+# /usr/local/psa/admin/sbin/nginxmng -d
+To check the status of Nginx:
+
+# /usr/local/psa/admin/sbin/nginxmng -s
+Please ensure that the service is running:
+
+# /etc/init.d/nginx status
+nginx is running.
+
+
+KAYNAK: https://support.plesk.com/hc/en-us/articles/213944825-How-to-enable-Nginx-reverse-proxy-in-Plesk

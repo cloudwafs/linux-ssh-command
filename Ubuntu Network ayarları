@@ -1,0 +1,4 @@
+ubuntu network conf. /etc/network/intefaces
+
+
+Network restart sudo /etc/init.d/networking restart

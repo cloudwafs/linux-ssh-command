@@ -1,0 +1,26 @@
+nano -w /scripts/securetmp
+
+my $tmpdsksize buluyoruz
+
+deðerini 512000 den 2048000a deðiþtir ve ardýndan
+
+yukarýda verdiðim 2048000 olan deðer 2GB tmp boyutu demek eðer bu bana fazla diyorsanýz 1024000 1GB yapabilirsiniz.
+
+
+TMP boyutu sorunsuz yükselttik þimdi son olarak þu komutlarý uygulayalým
+
+
+/bin/umount -l /tmp
+/bin/umount -l /var/tmp
+/bin/rm -fv /usr/tmpDSK
+/scripts/securetmp
+/scripts/restartsrv_mysql
+/scripts/restartsrv_httpd
+
+
+TMP baþarý ile yükselttik þimdi de boþaltalým.
+
+cd /tmp/
+rm -rfv sess*  
+
+Komutu ile tmp boþaltabilirsiniz.

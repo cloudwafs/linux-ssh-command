@@ -1,0 +1,26 @@
+Ýlk olarak sysadmin ismiyle yeni bir kullanýcý ekleyelim:
+1
+adduser sysadmin
+Ve kullanýcýyý ekledikten sonra arkasýndan da bu kullanýcý için istediðimiz bir parola belirleyelim:
+1
+passwd sysadmin
+komutunu girdikten sonra bize þifre sorulacak. Þifreyi de girdikten sonra þimdi bu kullanýcýmýzý root yetkileriyle donatmaya geliyor iþ. Bunun için sudoers dosyasýnda düzenleme yapmamýz gerekiyor. Gereken komutumuzla devam edelim:
+1
+visudo
+Þimdi gelen gelen ekranda aþaðýdaki yazýyý buluyoruz:
+1
+2
+## Allow root to run any commands anywhere
+root ALL=(ALL) ALL
+Bu kodun altýna tanýmladýðýmýz yeni kullanýcýyý ekliyoruz:
+1
+sysadmin ALL=(ALL) ALL
+Son olarak dosyayý kaydedip çýkýyoruz. Artýk SSH ya sysadmin kullanýcý adýyla giriþ yaptýðýnýzda sudo komutuyla root haklarýna sahip olabilirsiniz.
+Esasen yukarýdaki yöntemin temel amacý güvenliði artýrmak olduðundan ve artýk root yetkili bir kullanýcýmýz olduðuna göre bu güvenlik önlemini pekiþtirmek için standart root kullanýcýsýnýn yetkilerini kýsýtlamak gayet makul bir düþünce olabilir. Hazýr konuyla alâkasý varken onu da hemen anlatalým. Root kullanýcýsýný devre dýþý býrakmak için sshd ayar dosyasýnda ufak bir düzenleme yapmamýz gerekiyor. Bunun için önce sshd dosyamýsý açalým:
+1
+nano /etc/ssh/sshd_config
+Þimdi de aþaðýdaki satýrý dosyamýzda uygun bir yere ekleyelim ki genelde en sona eklemek tercih edilen bir yöntemdir:
+
+
+
+KAYNAK: http://tagdic.com/centosda-yeni-kullanici-ekleyip-root-yetkisi-vermek/

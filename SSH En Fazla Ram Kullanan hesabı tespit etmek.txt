@@ -1,0 +1,9 @@
+En Fazla Ram Kullanan hesabý tespit etmek
+
+ps axo %mem,comm,pid,euser | sort -nr | head -n 10
+
+############################################################
+
+En Fazla Cpu Kullanan Hesabý Tespit etmek
+
+ps axo pcpu,comm,pid,euser | sort -nr | head -n 10

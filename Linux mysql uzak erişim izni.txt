@@ -1,0 +1,12 @@
+mysql -h hostnameyadaIP -u kullanici_adi -p  data_adi
+
+nano /etc/mysql/mysql.conf.d
+
+bind-address = 127.0.0.1
+
+deðiþtir
+
+#bind-address = 127.0.0.1
+
+
+Diðer Conf dosyalarýný kontrol etmekte fayda var.

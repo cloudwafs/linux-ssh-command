@@ -1,0 +1,13 @@
+/var/ossec/bin/ossec-control status
+
+/var/ossec/bin/ossec-control start
+
+/var/ossec/bin/ossec-control restart
+
+/var/ossec/bin/ossec-control stop
+
+/var/ossec/bin/ossec-control reload
+
+/var/ossec/bin/ossec-control enabled
+
+/var/ossec/bin/ossec-control disabled

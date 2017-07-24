@@ -1,0 +1,40 @@
+ntPHPselector (cPanel‘de) aynı domain üzerinde PHP sürümler arası geçiş için kullanışlı bir uygulamadır. ntPHPselector desteklediği sürümler PHP 5.2, 5.3, 5.4 ve 5.5 ayrıca kurulumu oldukca basittir.
+
+####################################################################################
+
+cd /usr/local/src //Git
+wget -N https://nixtree.com/download/free/ntphpselector_manage.sh
+sh ntphpselector_manage.sh install
+
+####################################################################################
+
+Kullanıcılara izin vermek istediğin sürüm için
+sh ntphpselector_manage.sh recompile –option
+— option  <option>
+
+2 for 5.2
+3 for 5.3
+4 for 5.4
+5 for 5.5
+
+Örnek : Php 5.3 izin vermek için sh ntphpselector_manage.sh recompile 3
+
+####################################################################################
+
+Sunucudan kaldırmak için aşagıdaki komutu uygula
+sh ntphpselector_manage.sh uninstall
+
+####################################################################################
+
+Avantajları
+
+– Aynı domain altında birden fazla PHP versiyonu calıştırılabilmesi
+– Kolaylıkla Php’nin 4 farklı versiyonu arası geciş imkanı
+– Kullanıcı dostu arayüz (Kurulum sonrası cPanel’de)
+
+—————– Muhtemel hatalar —————–
+Hata 1 : ntphpselector_manage.sh: No such file or directory
+
+Çözüm 1 :
+wget http://nixtree.com/download/free/ntphpextension.sh //indir
+sh ntphpextension.sh recompile 2 (artık hangi sürümü kuracaksan) şeklinde uygulayın.

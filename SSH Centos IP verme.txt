@@ -1,0 +1,3 @@
+SSH ý açýp "setup" yazarak network ayarlarýndan Ip verebiliriz
+
+ardýndan "ONBOOT" yes olacak tüm bu iþlemler tamamlanýnca network restart edilecek.

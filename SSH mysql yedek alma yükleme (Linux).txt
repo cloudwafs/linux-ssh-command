@@ -1,0 +1,33 @@
+Öncelikle SSH ile MySQL yedeði almak için SSH ile sunucuya giriniz.
+Sonra
+
+1
+mysqldump -u database_kullanýcý_ismi -p database_ismi > veritabani.sql
+kodunu verin. Böylece bulunduðunuz dizine MySQL’inizin bir yedeði oluþturuldu (yedeðin ana dizine oluþturulduðunu varsayýyorum.)
+
+Evet þimdi bu yedeðimizi bilgisayarýmýza indirip ardýndan sunucudan yedeði sileceðiz.
+
+Wget ile yedeði indirme
+
+Konsolda
+
+1
+wget site.com/veritabani.sql
+þeklinde bir komut ile bilgisayarda bulunduðunuz dizine yedeðinizi indirebilirsiniz.
+
+SCP ile yedeði indirme
+
+Bu iþlem için sunucunuzdan çýkýþ yapmanýz iyi olacaktýr.
+Ardýndan
+
+1
+scp kullanici@site.com:veritabani.sql /home/kullanici/
+komutunu girin. Bundan sonra sizden þifre isteyecektir sistem. Orayada giriþ þifrenizi yazýn. Böylece SCP ile yedeðinizi indirebilirsiniz.
+
+Veritabaný yedeðini sunucudan silmek
+
+Aman buraya çok dikkat edin. Yanlýþ bir iþlemde sisteminize geri dönüþü olmayan zararlar verebilirsiniz.
+
+1
+rm -rf veritabani.sql
+komutunu verdikten sonra veritabani.sql ismindeki dosyanýz sunucudan silinir.

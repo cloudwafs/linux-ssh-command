@@ -1,0 +1,47 @@
+Yedek Alma ve gerü yükleme konusunda sorun yaþayan arkadaþlar için bir kaç komut vereceðim.
+
+Önecelikle ssh ya root olarak login oluyoruz ve aþaðýdaki komutlarý yazak toplu yedek alýyoruz.
+
+cd /home
+
+dizinine giriyoruz yedek almanýn bi kaç yolu var
+
+
+
+for i in $(ls /var/cpanel/users); do /scripts/pkgacct $i;done
+
+tek bir hesabýn yedeðini alacaksak eðer
+
+/scripts/pkgacct USERNAME
+
+burada yedek alacaðýmýz user seçiyoruz yani ftp adýný yazýyoruz yazdýðýmýz da tüm sitelemirimizin yedeðini home dizini içerisine atar yedeklerimizi bilgisayarýmýza indirmek için 
+
+mv /home/cpmove-USERNAME.tar.gz /home/USERNAME/public_html
+
+yazark yedeðimizi USERNAME nin hesabýna gönderiyoruz.eðer indirme izni vermek içinde
+
+chmod 777 /home/USERNAME/public_html/cpmove-USERNAME.tar.gz
+
+yazdýðýmýzda domain.com/cpmove-USERNAME.tar.gz dosyasýný indirebilirsiniz
+
+eðer baþka bir sunucuya taþýyacaksak eðer ve yine root yetkimiz varsa diðer tarafda
+
+yeni sunucunun ssh portu 22 ise 
+scp cpmove-* root@85.153.45.11:/home
+
+eðer 22 den farklý ise örnek 5858 ssh portumuzsa
+scp –P5858 cpmove-* root@85.153.45.11:/home
+
+þimdi yedeklerimizi aldýk bunlarý yüklemeyi anlatacaðým bazý arkadaþlarýmýz önce wehm den host açýp sonra yüklemeyi seçiyor kesinlikle whm den hiç bir hesap açmýyoruz yedekleri tekrar yüklemenin bi kaç yolu vardýr
+
+whm ingilizce için 
+Whm >> Backups >> Restore a full Backupps File >> 
+Whm Tr için:
+Whm Yonetimi >> Yedekleme >> Tam Yedeklenmiþ Dosyayý Yükle >>
+
+burada boþ bi kutu var buraya yedek adýný cpmove-USERNAME.tar.gz olarak yazmayacaðýz eski sunucumuzda ftp adi neyse onu yazacaðýz örnek s-destek.com sa sitemiz ftp adýmýzda hamit se hamit yazarak Restore butonuna basýyoz TR whm de Yükle Butonuna basiyoruz
+ve iþlemin bitmesini bekliyoruz bu biraz zaman alabilir eðer bunu daha hýzlý ssh dan yapmak istiyorsak
+
+for x in $(ls -A *.tar.gz | cut -d "-" -f 2 | cut -d "." -f 1); do /scripts/restorepkg $x; done
+
+yazdýðýmýzda home dizinindeki tüm yedekleri in açar ve whm dende hesaplarýn açýlmýþ olacaðýný göreceksiniz databe isimleri www/ klasörü ve içeriði ftp þifreleri eskisi gibi sadece þimdi size dns domaininiz iplerii güncellemeniz gerekiyor

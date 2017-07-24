@@ -1,0 +1,21 @@
+SYN Saldýrý Tespiti:  netstat -np | grep SYN_RECV | awk '{print $5}' | cut -d. -f1-4 | cut -d: -f1 | sort -n | uniq -c | sort -n
+
+#####################################################################################################################
+
+tcpdump -n not port 22
+
+####################################################
+
+Detaylý çýktý: tcpdump -n not port 22 -vvvv
+
+###########################################################################################
+
+Örnek Saldýrgan IP Adresi 10.0.0.249 Ise;
+
+cd /usr/local/apache/domlogs/ find . -iname '*' | xargs grep '10.0.0.249' –sl
+
+
+Komutlarýnýn sonucu bize 10.0.0.249 numaralý IP adresinin hangi log dosyasý içerisinde olduðunu gösterecektir. Ve bu log dosyalarýnýn isimleri internet sitesi isimleri ile ayný olacaðýndan direkt olarak saldýrý alan internet sitesini bulmuþ oluruz.
+
+###########################################################################################################################
+

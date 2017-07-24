@@ -1,0 +1,251 @@
+ls Dizinde bulunan her þeyi listeler.
+ls -a Gizli dosyalar ve dizinlerle beraber listeler.
+ls -l Bütün dosyalarý boyut ve tarihini göstererek listeler.
+tar -zxpf Uzantýsý tar.gz olan sýkýþtýrýlmýþ dosyalarý açar.
+tar -xpf Uzantýsý .tar olan dosyalarý açar.
+gunzip Uzantýsý .gz olan dosyalarý açar.
+cp Dosyayý kopyalar.
+mv Bir dosyayý baþka bir dizine taþýmanýzý saðlar ya da dosya adýný deðiþtirir.
+mkdir Yeni bir dizin oluþturmanýzý saðlar.
+rmdir Belirtilen dizini silmenizi saðlar.
+rm Dosya silmenizi saðlar.
+rm -rf Dizin silmenizi saðlar.
+cd Belirtilen dizine geçmenizi saðlar.
+cd .. Bir üst dizine geçmenizi saðlar.
+cd ~ En üst dizine çýkmanýzý saðlar.
+pwd O anda bulunduðunuz dizini görüntüler.
+pico Belirtilen dosyayý text editör ile düzenlemenizi saðlar.
+ftp Belirtilen siteye FTP baðlantýsý saðlar.
+lynx Belirtilen siteyi görüntüler.
+df Harddisk istatistiklerini gösterir.
+quota Disk kullanýmýnýzý gösterir.
+uname Ýþletim sisteminin durumunu gösterir.
+whoami Kendi bilgilerinizi gösterir.
+who Sunucuya baðlý olanlarý gösterir.
+last Hesabýnýza yapýlan en son baðlantýyý gösterir.
+whereis Belirtilen dosyanýn nerede olduðunu gösterir.
+BitchX IRC programýný çalýþtýrýr.
+mail Postalarýnýzý kontrol eder.
+ps -x Sizin çalýþtýrdýðýnýz iþlemleri gösterir.
+ps -a Sunucuda çalýþtýrýlan tüm iþlemleri gösterir.
+ps -ux Çalýþtýrýlan iþlemlerin CPU/RAM kullanýmýyla gösterir.
+kill Pid numarasý verilen iþlemi durdurur.
+kill -9 Pid numarasý verilen eggdrop iþlemini durdurur.
+killall Belirtilen program türündeki tüm iþlemleri durdurur.
+whatis Belirtilen komutun açýklamasýný verir.
+man Komut hakkýnda yardým görüntüler
+passwd Shell hesabýnýza girerken kullandýðýnýz þifreyi deðiþtirmenizi saðlar.
+vhosts ya da vhost Sistemde bulunan vhostlarý (virtual host) listeler.(BNC için kullanabilirsiniz)
+ROOT MAKÝNEDEN ÝP ÖÐRENME: ip addr
+ROOTTA HESAP AÇMAK : adduser login & chown mavigok /home/login & passwd pass1 , passwd pass2
+reboot: Sunucuya restart atar
+service mysql restart mysql restart atar
+service httpd restart apache ye rest atar
+service httpd stop Sitelere ulaþýmý kapatýr
+apf -d ipadresi verilen ipe ban atar
+service apf restart apf ye restart atar
+netstat -n sunucuya baglanan ipleri gösterir
+netstat -a sunucuya baðlanan reseller ipleri gösterir(Proxy kullanmanýz fark etmez her zaman gerçek çýkýþ ipi görünür)
+pico ssh üzerinden text editor ile dosya içeriðini görme ve düzenlemeye yarar.
+top Sistem cpu kullanýmýný gösterir.
+uptime Uptime Durumu
+IP BAN
+ip banlama
+iptables -A INPUT -s 85.159.54.48 -j DROP
+ip ban kaldýrma
+iptables -X INPUT -s 85.159.54.48 -j DROP
+Servera dosya çekme
+wget indirilecek-dosya-adresi
+Zip açma
+unzip dosya.zip
+tar.gz açma
+tar -zxvf dosya.tar.gz
+gzip açma
+gunzip dosya.tar.gz
+Dosya sýkýþtýrmak
+tar cvzf dosyam.tar.gz sýkýþtýrýlacak-dosya
+Sql Yükleme
+ * mysql -u dbkullanýcýadi -p dbadi < yedek.sql              
+History                ( Girilen Komutlarý Listeler )
+Clear                    ( liste temizleme )
+Ls  -l    ls –lh                       (      detaylý listeleme )
+Yardým Alma
+Çoðu komut yanýna -h veya –help yazýldýðýnda küçük bir bilgi verir. Buna ek olarak linux’ta binlerce dokümanýn bulunduðu manual sayfalarý vardýr. Yapmanýz gereken tek þey man komutundan sonra bilgi almak istediðiniz komutun adýný yazmak.
+komut      -h: Komut hakkýnda kýsa bilgi
+komut      –help: Üstekinin aynýsý
+man      komut: Komut hakkýnda detaylý doküman
+Dosyalarý Listeleme
+Linux’ta bir dizindeki dosyalarý listelemek için kullanýlan komut lsdir. Ekrana sýðmayan uzun listeleri göstermek için ise bu komut less ile beraber kullanýlabilir.
+ls:      Bulunduðun dizinin içeriðini göster
+ls      -a: Gizli dosyalarý da göster
+ls      -l: Uzun listele (sahip, izinler, boyut ve tarih dahil)
+ls      | less: Uzun listeleri kýsaltmak için
+Dizin deðiþtirme
+Baþka bir dizine geçmek için cd komutu kullanýlýr.
+cd      yol: yol dizinine geçer
+cd      ~: Sizin home dizininize geçer
+cd      -: Bir önceki dizine döner
+cd..:      Bir üst dizine geçer
+Dosya ve dizin yönetimi
+Bir dizini veya dosyayý kopyalamak için cp, taþýmak için mv, yeni klasör oluþturmak için mkdir, dosyayý silmek için rm, dizini ve içindeki dosyalarý silmek için rm -R, boþ bir dizini silmek için ise rmdir kullanýlýr.
+cp      kaynak hedef: Kaynaktan hedefe kopyalar
+cp      -R kaynak hedef: Önyineli(recursive) kopyalar
+mkdir      dizin: Yeni dizin yaratýr
+mv      kaynak hedef: Dosyalarý taþýmak veya adlarýný deðiþtirmek için
+rm      dosya: Dosyayý kaldýrýr
+rm      -R dizin: Önyineli kaldýrýr
+rmdir      dizin: Boþ dizini kaldýrýr
+touch      dosya: Dosya varsa tarihini deðiþtirir, yoksa yaratýr
+pwd:      Çalýþýlan dizinin ismini verir
+Dosya arama
+Herhangi bir dosyayý sistemde aramak için find ve locate komutlarý kullanýlýr. find bulunduðunuz dizinden baþlayarak tüm alt-dizinleri arar. locate ise tüm dosyalarý bir veritabanýnda tutar, bunun için hayli hýzlýdýr. Ancak bu veritabaný günde bir yenilendiðinden son kaydettiðiniz dosyalarý bulamayabilirsiniz.
+find      yol -name dosyaadý: Belirttiðiniz dizinden baþlayarak dosyayý      arar
+locate      dosyaadý: Dosyayý arar
+Metin dosyalarýyla çalýþma
+Kýsa bir metin dosyasýný görüntülemek için cat, metin dosyasýnda yön tuþlarý-Page Up/Down ile ilerlemek için less, dosyada bir yazýyý aramak için grep, satýrlarý sýralamak için sort, ve küçük bir editör ile açmak için ise pico kullanýlýr.
+cat      dosyaadý: Dosyayý ekranda görüntüler
+grep      yazý dosyaadý: Yazýyý dosyada arar, bulunduðu satýrý görüntüler
+less      dosyaadý: Dosyada ilerlemek için kullanýlýr (Çýkýþ q      ile)
+pico      dosyaadý: Dosyayý basit bir metin editörüyle açar
+sort      dosyaadý: Dosyadaki satýrlarý alfabetik sýraya göre dizip      gösterir
+Sýkýþtýrýlmýþ dosyalarý açma
+Ýnternetten indirdiðiniz dosyalar genelde sýkýþtýrýlmýþtýr. Bunlarý açmak için dosya tipine göre araç kullanmalýyýz.
+bunzip2      dosyaadý.bz2: bzip2 dosyasýný (.bz2) açar
+gunzip      dosyaadý.gz: gzipped (.gz) arþivini açar
+unzip      dosyaadý.zip: PkZip veya WinZip dosyasýný (.zip) açar
+tar      -xvf dosyaadý.tar: tar (.tar) arþivini (tarball) açar
+tar      -xvzf dosyaadý.tar.gz: tar arþivini (.tar.gz or .tgz) açar
+Að servislerini kullanma
+Dosya transferi yapmak için ftp, að baðlantýsýný kontrol etmek için ping, secure shell protokolüne baðlanmak için ssh, telnet protokolü üzerinden baðlanmak için ise telnet kullanýlýr.
+ftp      sunucu: FTP sunucusuna baðlanýr
+ping      sunucu: Sunucuya ping isteði gönderir
+ssh      -l kullanýcýadý sunucu: Uzaktaki makinaya Secure Shell      protokolü ile baðlanýr
+telnet      sunucu: Uzaktaki makinaya TELNET protokolü ile baðlanýr
+Sistem bilgisi görüntüleme
+date:      Ýþletim sisteminin saat ve tarihini görüntüler
+df      -h: Disk kullanýmýný görüntüler
+free:      Bellek kullanýmýný görüntüler
+history:      Kullanýlan hesap için çalýþtýrýlan komutlarý listeler
+hostname:      Yerel sunucu adýný verir
+rwho      -a: Aða baðlý kullanýcýlarý listeler
+uptime:      Bilgisayar açýldýðýndan beri geçen süreyi verir
+who:      Makineye baðlý kullanýcýlarý listeler
+whoami:      Giriþ isminizi görüntüler
+Dosya izinlerini deðiþtirme
+chown      kullanýcý.grup dosyaadý: Dosyaya sahip olan grubu ve kullanýcýyý      deðiþtirir. Tabii ki bu komutu sadece o dosyanýn sahibi kullanabilir
+chmod      (augo)(+-)(rwx) dosyaadý: Dosya üzerindeki okuma-yazma-çalýþtýrma      (read-write-execute) izinlerini (rwx) farklý seviyedeki kullanýcýlar için      (all-owner-group-other) artýrýp azalmayý (+/-) saðlar
+vi, nano, pico dosya : Vi’ý geçen ayki yazýmýzdan hatýrlýyoruz. Nano ve Pico da Vi’dan daha basit metin düzenleyicileridir. Terminalden bu komutlarý girersek dosya adýnda bir dosya açarlar, dosya yazmazsak da isimsiz bir belge açarlar.
+less,      more, cat dosya : Bu üç komut dosyayý okumamýzý saðlar.      More baþtan baþlayýp sadece ileriye doðru hareketi saðlarken, less hem      ileriye hem geriye doðru hareketi destekler. Cat ise sadece dosyanýn bütün      içeriðini ekrana yazar.
+sftp,      ssh, scp : Kýsaca uzaktan baðlantý kuran komutlardýr, bunlar hakkýnda      detaylý bilgiye geçmiþ      yazýlarýmýzdan ulaþabilirsiniz.
+lynx,      www adres : Adresteki internet adresine terminalden      baðlanýp eriþebilmemizi saðlayan komutlardýr.
+setxkbmap      :      Klavye dilini dil olarak deðiþtirir. Setxkbmap tr olarak      kullanabiliriz.
+whatis      komutadý : Bir komutun yaptýðý iþi kýsaca      anlatýr.
+ 
+ 
+ 
+Remove Webmin RPM (RHEL / Centos / Fedora )
+# rpm -ev webmin
+# /etc/webmin/uninstall.sh
+Solaris UNIX Remove Webmin Software
+# pkgrm WSwebmin
+Debian / Ubuntu Linux Remove Webmin Software
+# apt-get --purge remove webmin
+FreeBSD Remove Webmin Software
+# cd /usr/ports/sysutils/webmin
+# make deinstall clean
+OR use pkg_delete command:
+# pkg_delete webmin
+ 
+Komut	Görevi	Örnek
+cp 	Dosyayý kopyalar.	 
+mv	Bir dosyayý baþka bir dizine taþýmanýzý saðlar yada dosya adýný   deðiþtirir.	 
+ls -l	Bütün dosyalarý boyut ve tarihini göstererek listeler.	 
+ 	 	 
+ 	 	 
+ 	 	 
+Dizin Ýþlemleri
+Komut	Görevi	Örnek
+mkdir 	Yeni bir dizin oluþturmanýzý saðlar.	 
+rmdir	Belirtilen dizini silmenizi saðlar.	 
+rm	Dosya silmenizi saðlar.	 
+rm -rf	Dizin silmenizi saðlar.	 
+cd	Belirtilen dizine geçmenizi saðlar.	 
+cd ..	Bir üst dizine geçmenizi saðlar.	 
+cd ~	En üst dizine çýkmanýzý saðlar.	 
+pwd	Bulunduðunuz dizini görüntüler.	 
+ 	 	 
+Disk Ýþlemleri
+Komut	Görevi	Örnek
+df	Harddisk istatistiklerini gösterir.	 
+quota	Disk kullanýmýnýzý gösterir.	 
+rm	Dosya silmenizi saðlar.	 
+rm -rf	Dizin silmenizi saðlar.	 
+cd	Belirtilen dizine geçmenizi saðlar.	 
+cd ..	Bir üst dizine geçmenizi saðlar.	 
+cd ~	En üst dizine çýkmanýzý saðlar.	 
+pwd	Bulunduðunuz dizini görüntüler.	 
+ 	 	 
+Listeleme Ýþlemleri
+Komut	Görevi	Örnek
+ls	Dizinde bulunan herþeyi listeler	 
+ls -a	Gizli dosyalar ve dizinlerle beraber listeler.	 
+ls -l	Bütün dosyalarý boyut ve tarihini göstererek listeler.	 
+whereis	Belirtilen dosyanýn nerede olduðunu gösterir.	 
+find	Dosya Bulma Ýþlemi DOS daki dir / s gibi	Tüm alt-dizinlerdeki   “mfyz” ile baþlayan dosyalar için : find . -name “mfyz*”   -print
+find	Bul ve kopyala	find -type f -name ‘_f1*.*’ -exec mv {} ../ ; (bir üst klasöre bulduklarýný taþýr)
+ls -l | wc -l	Dizindeki dosyalarý sayar	 
+Sýkýþtýrýlmýþ Dosya Ýþlemleri
+Komut	Görevi	Örnek
+tar -zxpf 	Uzantýsý tar.gz olan sýkýþtýrýlmýþ dosyalarý açar.	 
+tar -xpf	Uzantýsý .tar olan dosyalarý açar.	 
+gunzip	Uzantýsý .gz olan doslarý açar.	 
+unzip	Zip dosyalarýný acmaya yarar	 
+zip	Zip dosyasý yapmayý saðlar	zip -r dosyaadi.zip ziplecek_klasor_adi
+ 	 	 
+Uygulamalar
+Komut	Görevi	Örnek
+pico 	Belirtilen dosyayý text editör ile düzenlemenizi saðlar.	 
+ftp	Belirtilen siteye FTP baðlantýsý saðlar.	 
+lynx	Belirtilen siteyi görüntüler.	 
+BitchX	IRC programýný çalýþtýrýr.	 
+mail	Postalarýnýzý kontrol eder.	 
+whatis	Belirtilen komutun açýklamasýný verir.	 
+man	Komut hakkýnda yardým görüntüler	 
+passwd	Shell hesabýnýza girerken kullandýðýnýz þifreyi deðiþtirmenizi saðlar.	 
+vhosts yada vhost	Sistemde bulunan vhostlarý (virtual host) listeler.(BNC için   kullanabilirsiniz)	 
+useradd	Linux sistemine tek bir kullanýcý ekler	 
+userdel	Sistemde mevcut kullanýcýlarý sistemden uzaklaþtýrýr siler	 
+usermod	Sistemde mevcut olan bir kullanýcýnýn özelliklerini deðiþtirir	 
+wget url	Download eder.	 
+top	Cpu ram vs.. istatistiklerini gösterir	 
+history	Geçmiþte hangi komutlarýn kullandýgýný gösterir	 
+ 	 	 
+Server Ýþlemleri
+Komut	Görevi	Örnek
+uname	Ýþletim sisteminin çekirdek versiyonunu gösterir.	 
+whoami	Kendi bilgilerinizi gösterir.	 
+who	Sunucuya baðlý olanlarý gösterir.	 
+last	Hesabýnýza yapýlan en son baðlantýyý gösterir.	 
+ps -x	Sizin çalýþtýrdýðýnýz iþlemleri gösterir.	 
+ps -a	Sunucuda çalýþtýrýlan tüm iþlemleri gösterir.	 
+ps -ux	Çalýþtýrýlan iþlemlerin CPU/RAM kullanýmýyla gösterir.	 
+kill	Pid numarasý verilen iþlemi durdurur.	 
+kill -9	Pid numarasý verilen eggdrop iþlemini durdurur.	 
+killall	Belirtilen program türündeki tüm iþlemleri durdurur.	 
+reboot	Sisteme restart atar	 
+ 	 	 
+Sistem Ýþlemleri
+Komut	Açýklama	Örnek	Örneðin Açýklamasý
+shutdown	Sistemi kapatýr	shutdown -Fr now	Sistemi reboot eder ve yeniden baþlatýlýrken disk kontrolü yapýlýr
+cat /proc/cpuinfo	Ýþlemci hakkýnda detaylý bilgi verir	 	 
+lspci	PCI yuvalarýndaki kartlar hakkýnda bilgi verir	 	 
+lsusb	USB aygýtlar hakkýnda bilgi için	 	 
+cat /proc/bus/input/devices	Giriþ çýkýþ cihazlarý hakkýnda bilgi için	 	 
+ 	 	 	 
+Linux Dizin Yapýsý
+/home	Kullanýcý dosyalarý
+/etc	Ayar dosyalarý
+/lib	Kütüphaneler
+/usr	Kullanici sistem dosyalari
+/tmp	Geçici Dizin
+/bin	Sunucu Kullananlar için Linux ve SSH Komutlarý

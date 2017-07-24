@@ -1,0 +1,31 @@
+yum -y install epel-release
+
+--------------------------------------------------------------------------------------------
+
+yum -y install https://github.com/AnoopAlias/XtendWeb/raw/ndeploy4/nDeploy-release-centos-1.0-5.noarch.rpm
+
+--------------------------------------------------------------------------------------------
+
+yum --enablerepo=ndeploy install nginx-nDeploy nDeploy
+
+--------------------------------------------------------------------------------------------
+
+/opt/nDeploy/scripts/easy_php_setup.sh
+
+--------------------------------------------------------------------------------------------
+
+yum --enablerepo=ndeploy install nginx-nDeploy-module-passenger
+
+--------------------------------------------------------------------------------------------
+
+/opt/nDeploy/scripts/cpanel-nDeploy-setup.sh enable
+
+--------------------------------------------------------------------------------------------
+
+#Note that each module increases the nginx size and processing requirements
+#So install only required functionality.
+
+(pagespeed)   yum --enablerepo=ndeploy install nginx-nDeploy-module-pagespeed
+(brotli)      yum --enablerepo=ndeploy install nginx-nDeploy-module-brotli
+(geoip)       yum --enablerepo=ndeploy install nginx-nDeploy-module-geoip
+(naxsi)       yum --enablerepo=ndeploy install nginx-nDeploy-module-naxsi

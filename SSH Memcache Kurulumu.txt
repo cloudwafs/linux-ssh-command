@@ -1,0 +1,28 @@
+Centos 6 için Memcache kurulumu
+
+yum install libevent libevent-devel
+
+cd /usr/local/src
+wget http://memcached.googlecode.com/files/memcached-1.4.15.tar.gz
+
+tar xvzf memcached-1.4.15.tar.gz
+cd memcached-1.4.15
+
+./configure
+
+./configure --enable-64bit
+
+./configure --enable-threads
+
+./configure --enable-threads --enable-64bit
+
+yum install gcc
+yum install make
+
+make && make install
+
+memcached -d -u nobody -m 512 -p 11211 127.0.0.1
+
+
+
+Bilinmiyor???? = memcached -d -u [user] -m [memory size] -p [port] [listening IP]

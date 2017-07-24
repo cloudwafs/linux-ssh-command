@@ -1,0 +1,24 @@
+service iptables stop kapatma
+
+service iptables start açma
+
+service iptables status (Firewall Durumu)
+
+service iptables restart (Firewall u yeniden baþlatma)
+
+chkconfig iptables off (Ýþletim sistemi açýldýðýnda otomatik açýlmasýn diye)
+
+chkconfig iptables on (Ýþletim sistemi açýldýðýnda otomatik açýlsýn diye)
+
+#################################################################################################
+
+nano /etc/csf/csf.conf (TESTING = "0" olacak þekilde sonra kaydet)
+
+Son olarak yeniden baþlat =    csf -r
+
+#################################################################################################
+
+nano /etc/csf/csf.conf girilecek
+
+
+RESTRICT_SYSLOG = "3"   Yapýlmalý

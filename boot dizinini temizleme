@@ -1,0 +1,20 @@
+Do the following to keep just the last 2 kernels on your system, to keep /boot clean
+
+1 - Edit /etc/yum.conf and set the following parameter
+
+installonly_limit=2
+This will make your package manager keep just the 2 last kernels on your system(including the one that is running)
+
+2 - Install yum-utils:
+
+yum install yum-utils
+3- Make an oldkernel cleanup:
+
+package-cleanup --oldkernels --count=2
+Done. This will erase in a good fashion the old kernels, and, keep just the last 2 of them for the next upgrades.
+
+
+
+
+KAYNAK:    http://unix.stackexchange.com/questions/105026/boot-partition-is-almost-full-in-centos
+

@@ -1,0 +1,91 @@
+Bugün centos iþletim sistemine sahip sunucunuza lighttpd’nin ürettiði php cache yazýlýmý xcache kurulumunu anlatacaðým.
+
+Kurulum tüm kontrol panelleri için geçerlidir.
+
+########################################################################################################
+
+Xcache dosyalarýný çekeceðimiz dizine geçip, xcache 2.0.0 versiyonunu sunucumuza wget ile çekiyoruz.
+
+cd /usr/local/src
+wget http://xcache.lighttpd.net/pub/Releases/2.0.0/xcache-2.0.0.tar.gz
+
+########################################################################################################
+
+Ardýndan indirdiðimiz tar.gz dosyayý sýkýþmýþ halden kurtarýyoruz.
+
+tar -xvzf xcache-2.0.0.tar.gz
+
+########################################################################################################
+
+Dosyalarýmýzý kullanýlabilir hale getirdikten sonra açýlmýþ dosyamýza giriyoruz ve xcache dosyalarýný derliyoruz.
+
+cd xcache-2.0.0
+phpize
+./configure enable-xcache
+
+########################################################################################################
+
+Son aþamada derlenmiþ xcache dosyalarýmýza make ve make install çekerek kurulumu tamamlýyoruz.
+
+make
+su
+make install
+
+######################################################################################################## 
+
+Xcache kurulu durumda ancak webserver tarafýnýn xcache i görmesi gerekiyor. Bunun için php.ini dosyamýzý açýyoruz.
+
+(Default php.ini yolu /usr/local/lib/php.ini)
+
+nano /usr/local/lib/php.ini
+
+########################################################################################################
+
+Php.ini içinde kesin bir yeri olmamakla beraber herhangi boþ satýra xcache.so satrýný ekleyebilirsiniz.
+
+PHP 5.2.x versiyonlarý için
+
+zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20060613/xcache.so
+
+xcache.size=128M
+
+########################################################################################################
+
+PHP 5.3.x versiyonlarý için
+
+zend_extension=/usr/local/lib/php/extensions/no-debug-non-zts-20090626/xcache.so
+
+xcache.size=128M
+
+########################################################################################################
+
+Xcache.size satýrý xcache in kullanacaðý maksimum bellek miktarýný belirler, sunucu belleðine göre uygun bir deðer belirleyebilirsiniz.
+
+Ýlgili satýrlarý ekledikten sonra ctrl-x, y, enter ile dosyamýzý kaydediyoruz. Ardýndan web sunucumuzu restartlýyoruz.
+
+service httpd restart
+
+########################################################################################################
+
+Litespeed kullananlar için
+
+service lsws restart
+
+########################################################################################################
+
+Kurulum baþarýlý olarak bittiyse php -v komutu verdiðinizde bileþenler arasýnda xcache görünür halde olacaktýr.
+
+Önemli Not: Eðer cpanelde easyapache kullanarak php derleme yaparken xcache seçtiyseniz, xcache kurulumundan sonra php.ini den, xcache.so satýrýný mutlaka siliniz aksi taktirde Segmentation fault hatasý alýrsýnýz.
+
+Xcache istatistiklerine ulaþmak
+
+Xcache istatistiklerini takip etmek isterseniz, sunucuya çektiðiniz xcache dosyalarý içerisinden admin panel dosyalarýný sitenizin ftp sine aktarýp, php.ini xcache satýrýnýn altýna aþaðýdaki kodlarý ekleyebilirsiniz.
+
+xcache.admin.user = xcachecp
+xcache.admin.pass = e10adc3949ba59abbe56e057f20f883e
+
+Yukardaki satýrlara göre xcache admin panel kullanýcý adý xcachecp dir. Admin.pass kýsmý md5 þifreli haldedir, bu md5 ile þifre 123456 olmaktadýr, md5 þifre oluþturma sitelerinden belirlediðiniz þifrenin md5 kodunu oluþturup admin.pass satýrýndaki týrnaklý kýsýmlar arasýnda md5 kodunu yapýþtýrabilirsiniz.
+
+
+
+KAYNAK: http://blog.ozkula.com/centos-sunucunuza-xcache-kurulumu.html

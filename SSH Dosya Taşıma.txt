@@ -1,0 +1,1 @@
+mv /home/cpmove-KULLANICI.tar.gz /home/KULLANICI/public_html

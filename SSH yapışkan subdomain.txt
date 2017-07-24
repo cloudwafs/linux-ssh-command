@@ -1,0 +1,5 @@
+Önce: /etc/userdomains
+
+
+Sonra: /usr/local/apache/conf/httpd.conf
+

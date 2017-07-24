@@ -1,0 +1,40 @@
+yum install gmp gmp-devel
+
+2. Download and decompress (latest version -> http://xcache.lighttpd.net/)
+Code: [Select]
+wget http://xcache.lighttpd.net/pub/Releases/3.2.0/xcache-3.2.0.tar.gz
+Code: [Select]
+tar -xvzf xcache-3.2.0.tar.gz
+
+3. Compile XCache
+Code: [Select]
+cd xcache-3.2.0
+Code: [Select]
+/usr/local/bin/phpize
+Code: [Select]
+./configure --enable-xcache --with-php-config=/usr/local/bin/php-config
+Code: [Select]
+make
+Code: [Select]
+make install
+Code: [Select]
+cp xcache.ini /usr/local/php/php.d/xcache.ini
+
+4. Restart httpd and check results
+Code: [Select]
+service httpd restart
+Code: [Select]
+php -v
+
+You should see this:
+Code: [Select]
+PHP 5.4.27 (cli) (built: Jan 11 2015 15:58:09)
+Copyright (c) 1997-2014 The PHP Group
+Zend Engine v2.4.0, Copyright (c) 1998-2014 Zend Technologies
+    with XCache v3.2.0, Copyright (c) 2005-2014, by mOo
+    with the ionCube PHP Loader v4.7.3, Copyright (c) 2002-2014, by ionCube Ltd.
+    with XCache Cacher v3.2.0, Copyright (c) 2005-2014, by mOo
+
+
+
+Kaynak: http://forum.centos-webpanel.com/php/how-to-install-xcache-in-php-on-centos-linux/

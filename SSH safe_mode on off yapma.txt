@@ -1,0 +1,11 @@
+ssh'a girip
+
+nano /usr/local/lib/php.ini
+
+yazýp
+
+ctrl + f ile safe_mode aratýn
+
+sonra on yazan yeri off yapýn
+
+service httpd restart yazýn safe mode off olacaktýr..

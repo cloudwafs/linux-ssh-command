@@ -1,0 +1,54 @@
+ls : Dizinde bulunan tüm dosya ve dizinleri listeler.
+ls -a : Dizinde bulunan gizli dosya ve dizinler ile beraber listeler.
+ls -l : Bütün dosyalarý, boyut ve tarihli açýklamalarý ile gösterir.
+tar -zxpf : tar.gz ile sýkýþtýrýlan dosyalarý açar
+tar -xpf : .tar ile sýkýþtýrýlmýþ olan dosyalarý açar.
+gunzip : .gz ile sýkýþtýrýlmýþ dosyalarý açar.
+cp : Bir dosyayý kopyalamak için kullanýlýr.
+mv : Bu komu bir dosyanýn taþýnmasý için kullanýlýr. Eðer dosyayý ayný dizine taþýrsanýz sadece adý deðiþtirecektir. Bu sayede dosyanýn ismini deðiþtirmek için de kullanýlabilmektedir.
+mkdir : Mevcut dizinde yeni dizin açmanýza yarar.
+rmdir : Belirttiðiniz dizini silmek için kullanýlýr.
+rm : Belirtilen bir dosyayý siler.
+rm -rf : Belirttiðiniz bir dizini silmenizi saðlar.
+cd : Belirttiðiniz dizini açar
+cd .. : Mevcut dizinden bir üst dizine geçiþ için kullanýlýr.
+cd ~ : En üst dizine geçmek için kullanýlýr.
+pwd : Bulunduðunuz dizini gösterir.
+pico : Belirttiðiniz dosyayý text bir editörü ile açar.
+ftp : Belirttiðiniz siteye FTP baðlantýsýný gerçekleþtirir.
+lynx : Belirttiðiniz siteyi gösterir.
+df : Harddisk bilgilerini listeler.
+quota : Disk kullaným durumunu gösterir.
+uname : Ýþletim sisteminin sürümü ve adýný gösterir.
+whoami : Giriþ user adýný gösterir.
+who : Sunucya baðlý olanlarý listeler.Ayný ve benzer bir iþlemi w ile de gerçekleþtirebilirsiniz.
+last : Hesabýnýzda gerçekleþtirilen en son baðlantýyý listeler.
+whereis : Yanýna yazdýðýnýz dosya yada ismin yolunu arar ve gösterir.
+BitchX : IRC programýný çalýþtýrmak için kullanýlýr.
+mail : Postalarýnýzý listeler.
+ps -x : Yaptýðýnýz iþlemleri gösterir.
+ps -a : Çalýþan tüm iþlemleri listeler.
+ps -ux : Çalýþan iþlevlerin CPU / RAM kullaným durumlarýný listeler.
+kill : Pid numarasý verdiðiniz iþlemi durdurur.
+kill -9 : Pid numarasý verilen eggdrop iþlemini durdurur.
+killall : Belirttiðiniz programýn tüm iþlemlerini durdurmak için kullanýlýr.
+whatis : Girdiðiniz komutun açýklamasýný gösterir.
+man : Girdiðiniz komut hakkýnda yardým getirir.
+passwd : Shell hesabý þifrenizi deðiþtirir.
+reboot : Sunucuza reboot atar.
+service mysqld restart : Eðer Linux üzerine plesk kullanýyorsanýz MYSQL resetlemenizi saðlar, fakat cPanel sistemlerde service mysql restart yazmanýz gerekmektedir.
+service httpd restart : Apache servisine restart atar.
+service httpd stop : Apache servisini kapatýr.(sitelere eriþim duracaktýr)
+netstat -n : Sunucudaki baðlý ip adreslerini listeler.
+netstat -a : Sunucudaki reseller ip adreslerini görürsünüz
+nano : SSH’da text editörü çalýþtýrmanýzý saðlar, nano yeniisim yazarsanýz yeni bir dosya oluþturmuþ olacaksýnýz.
+top : Sistemin CPU durumunu ve tüm baðlantý, çalýþan programlarý listeler.
+uptime : Uptime Durumunu gösterir.
+wget : Sunucuya bir dosya çekmek için kullanýlýr.
+
+IP Ýþlemleri ;
+
+IP BANLAMA;
+iptables -A INPUT -s 85.159.54.48 -j DROP
+IP BAN AÇMA;
+iptables -X INPUT -s 85.159.54.48 -j DROP

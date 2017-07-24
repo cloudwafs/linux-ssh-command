@@ -1,0 +1,11 @@
+Þifreyi sýfýrlamak için sunucuya SSH ile baðlanmalýsýnýz.
+
+############################################################################
+
+Komut: sh /usr/local/lsws/admin/misc/admpass.sh
+
+############################################################################
+
+Bu komutu yazýn ve deðiþtirmek istediðiniz kullanýcýnýn adýný yazýn. Bu standart olarak admindir. Enter tuþuna basýn sonrasýnda deðiþtirmek istediðiniz þifreyi yazýn, doðrulama için tekrar yazýn.
+
+Þimdi yeni belirlediðiniz þifre ile Litespeed admin paneline giriþ yapabilirsiniz.

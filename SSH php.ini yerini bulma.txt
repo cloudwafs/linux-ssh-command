@@ -1,0 +1,5 @@
+php -i | grep php.ini
+
+cpanelde: /usr/local/lib/php.ini
+
+bunun yeri bazen deðiþebilir.

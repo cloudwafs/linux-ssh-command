@@ -1,0 +1,22 @@
+DDosEngelleme ve SYN Saldýrýsý Engellemek için
+
+mkdir ddos
+
+wget http://www.inetbase.com/scripts/ddos/install.sh
+
+sh install.sh
+
+
+###############################################################
+
+
+nano /usr/local/ddos/ddos.conf
+
+
+NO_OF_CONNECTIONS=100 >Bir ip adresi maximum 100 baðlantý yapabilir.
+
+BAN_PERIOD=500 >10 dakika içinde ayný ip adresi 150 eriþim yaparsa banlar
+
+EMAIL_TO=info@idealhosting.net.tr Mevcut aktif mail adresini giriyoruz. Saldýrý geldiðinde mail ile bilgi verilecek.
+
+APF_BAN=1 Eðer APF kullanýyorsanýz 1 kullanmýyorsanýz 0 yapmanýz þart.

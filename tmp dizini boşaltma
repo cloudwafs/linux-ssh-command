@@ -1,0 +1,32 @@
+Tmp dizninin dolu olup olmadigina asagidaki komutla bakabilirsiniz ;
+df -h /tmp
+
+
+Dizin dolu ise asagidaki komutlari uygulayin ;
+
+Not : Komutlar linux sistemler icin gecerlidir ve risklidir.Komutlar denenmis ve calismaktadir.Herhangi bir sorumda sorumluluk kabul etmiyorum.
+
+Öncelikle tmp diznini kullanan servisleri durdurun;
+service httpd stop
+
+service mysql stop
+
+/etc/init.d/chkservd stop
+
+
+Tmp diznini silin ve yeniden olusturun;
+/bin/umount -l /tmp
+
+/bin/umount -l /var/tmp
+
+/bin/rm -fv /usr/tmpDSK
+
+/scripts/securetmp (soru sorarsa onaylayin)
+
+
+Durdurdugunuz servisleri yeniden baslatin ;
+service mysql start
+
+service httpd start
+
+/etc/init.d/chkservd restart

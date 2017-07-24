@@ -1,0 +1,10 @@
+wget https://bintray.com/artifact/download/ossec/ossec-hids/ossec-hids-2.8.3.tar.gz
+
+tar -zxvf ossec-hids-2.8.3.tar.gz
+
+cd ossec-hids-2.8.3
+
+Kurulumu başlatmak için: ./install.sh
+
+
+Ossec başlatmak için: /var/ossec/bin/ossec-control start

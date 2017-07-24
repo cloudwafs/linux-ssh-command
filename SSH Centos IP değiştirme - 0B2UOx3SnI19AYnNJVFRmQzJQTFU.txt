@@ -1,0 +1,4 @@
+nano /etc/sysconfig/network-scripts/ifcfg-eth0
+Komutunda açýlan sayfada eski ipnizin yerine yeni ipnizi yazýnýz ve aþaðýdaki komutla networkü restartlýyoruz.
+
+service network restart

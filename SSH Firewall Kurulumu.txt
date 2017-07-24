@@ -1,0 +1,30 @@
+Kurulum:
+
+wget https://download.configserver.com/csf.tgz
+tar -xzf csf.tgz
+cd csf
+sh install.sh
+cd ..
+rm -Rfv csf/ csf.tgz
+
+##################################################################
+
+Yüklü baþka bir firewall yazýlýmý var ise; Kaldýrma:
+
+sh /usr/local/csf/bin/remove_apf_bfd.sh
+
+##################################################################
+
+Firewall kaldýrma:
+
+cd /etc/csf
+sh uninstall.sh
+
+##################################################################
+
+Konfigürasyon Ayarlarý:
+
+http://blog.cliaweb.com/cpanel-csf-configserver-security-firewall-kurulumu-ve-ayarlari.html
+
+
+https://download.configserver.com/csf/install.txt

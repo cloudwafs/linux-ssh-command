@@ -1,0 +1,37 @@
+İşlemlere başlayalım öncelikle ekli diskleri tespit edelim
+
+fdisk -l | grep "Disk"
+
+ Örnek çıktı ,
+
+Disk /dev/sda: 250.0 GB, 250000000000 bytes
+Disk /dev/sdb: 250.0 GB, 250059350016 bytes
+
+ 
+
+Bu çıktıya göre 2×250  sunucumuzda disk var.Fakat şuan sadece 250 gb kullanılabilir 250 gb sonradan eklendiği için kullanılamaz durumda bunu da kullanabilir yapmak için
+
+Önce yeni diski formatlayalım
+
+ mkfs.ext3 /dev/sdb
+
+Şimdi yeni diskin dosyalarının nereden duracağını yani nereye mount edeceğini ayarlayalım
+
+mkdir /hdd2
+
+Ve son olarak yeni diski mount ediyoruz.
+
+mount /dev/sdb /hdd2
+
+Her şey bu kadardı df -h çıktısı ile disklerinizi görebilirsiniz
+
+
+reboot'ta kaybolmaması için;
+
+nano /etc/fstab
+
+
+
+Şunu ekle (hdd2 yerine başka olabilir);
+
+/dev/sdb                /hdd2                   ext4    defaults               0 0

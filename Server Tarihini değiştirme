@@ -1,0 +1,8 @@
+Yazılacak Komut: date 092206372011
+
+Bu kodu tam 1 dk sonrasına ayarlayıp beklemeye başlayın. Şu anda bu kod bana göre şimdiyi yani 22 Eylül 2011 – 06:37′yi gösteriyor. Rakamlara bakarak kendiniz saatinizi yukarıda ki formata göre ayarlamalısınız. Açıklaması ise;
+
+
+Yani: 09:Ay , 22:Gün , 06:Saat , 37:Dakika , 2011:Sene
+
+date 09/22/06/37/2011

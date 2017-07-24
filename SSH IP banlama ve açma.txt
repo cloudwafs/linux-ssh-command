@@ -1,0 +1,9 @@
+IP BANLAMA;
+
+iptables -A INPUT -s 5.9.10.150 -j DROP
+
+###############################################
+
+IP BAN AÇMA;
+
+iptables -X INPUT -s 5.5.5.5 -j DROP

@@ -1,0 +1,83 @@
+Mod_Pagespeed Kurulumu
+-------------------------------------------------
+
+RedHat, CentOS, or Fedora
+sudo yum install gcc-c++ pcre-devel zlib-devel make unzip
+
+############################################################################################################
+
+Ubuntu or Debian
+sudo apt-get install build-essential zlib1g-dev libpcre3 libpcre3-dev unzip
+
+
+############################################################################################################
+
+
+CentOS 5
+--------------------
+Kurulacak Paketler
+
+sudo wget https://linux.web.cern.ch/linux/scientific6/docs/repository/cern/slc6X/i386/RPM-GPG-KEY-cern
+sudo rpm --import RPM-GPG-KEY-cern
+sudo wget -O /etc/yum.repos.d/slc5-devtoolset.repo https://linux.web.cern.ch/linux/scientific5/docs/repository/cern/devtoolset/slc5-devtoolset.repo
+sudo yum install devtoolset-2-gcc-c++ devtoolset-2-binutils
+
+------------------------------------------------
+
+Derleme yap
+
+PS_NGX_EXTRA_FLAGS="--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc"
+
+
+
+CentOS 6
+--------------------
+
+Kurulacak Paketler
+
+sudo rpm --import https://linux.web.cern.ch/linux/scientific6/docs/repository/cern/slc6X/i386/RPM-GPG-KEY-cern
+sudo wget -O /etc/yum.repos.d/slc6-devtoolset.repo https://linux.web.cern.ch/linux/scientific6/docs/repository/cern/devtoolset/slc6-devtoolset.repo
+sudo yum install devtoolset-2-gcc-c++ devtoolset-2-binutils
+
+------------------------------------------------
+
+Derleme yap
+
+PS_NGX_EXTRA_FLAGS="--with-cc=/opt/rh/devtoolset-2/root/usr/bin/gcc"
+
+
+############################################################################################################
+
+
+cd
+NPS_VERSION=1.11.33.3
+wget https://github.com/pagespeed/ngx_pagespeed/archive/release-${NPS_VERSION}-beta.zip -O release-${NPS_VERSION}-beta.zip
+unzip release-${NPS_VERSION}-beta.zip
+cd ngx_pagespeed-release-${NPS_VERSION}-beta/
+wget https://dl.google.com/dl/page-speed/psol/${NPS_VERSION}.tar.gz
+tar -xzvf ${NPS_VERSION}.tar.gz  # extracts to psol/
+
+
+############################################################################################################
+
+
+cd
+# check http://nginx.org/en/download.html for the latest version
+NGINX_VERSION=1.11.3
+wget http://nginx.org/download/nginx-${NGINX_VERSION}.tar.gz
+tar -xvzf nginx-${NGINX_VERSION}.tar.gz
+cd nginx-${NGINX_VERSION}/
+./configure --add-module=$HOME/ngx_pagespeed-release-${NPS_VERSION}-beta ${PS_NGX_EXTRA_FLAGS}
+make
+sudo make install
+
+
+############################################################################################################
+
+
+setarch i686 ./configure --add-module=$HOME/ngx_pagespeed-release-${NPS_VERSION}-beta
+
+
+
+
+KAYNAK: https://developers.google.com/speed/pagespeed/module/build_ngx_pagespeed_from_source

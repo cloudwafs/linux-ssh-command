@@ -1,0 +1,23 @@
+# wget http://repo.cloudlinux.com/cloudlinux/sources/cln/cpanel2cl
+
+# sh cpanel2cl -k 12314-d34463a182fede4f4d7e140f1841bcf2            (Trial lisanslýdýr.)
+
+# reboot
+
+########################################################################
+
+Sunucunuz açýldýktan sonra cloudlinux sorunsuz çalýþmasý için apache tekrar derliyoruz.
+
+# /scripts/easyapache –build
+
+CloudLinux Kurulumu tamamlandý.Bundan sonra sunucunuzdaki tüm siteler ayný cpu oranýna sahip olacak ve aþým yapamayacaktýr.
+
+########################################################################
+
+Ya da 
+
+# wget http://repo.cloudlinux.com/cloudlinux/sources/cln/cldeploy
+
+# sh cldeploy -i
+
+# reboot

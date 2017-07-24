@@ -1,0 +1,40 @@
+first edit /etc/pure-ftpd.conf
+# vi /etc/pure-ftpd.conff
+then type:
+/PassivePorts and press enter to find this line:
+PassivePorts 35000 35999
+and press i for insert mode
+replace ports with this line:
+PassivePorts 30000 35000
+after editing pres Esc button to exit insert mode.
+then again enter: 
+/PassivePorts to find this line:
+<Global>
+PassivePorts 35000 35999
+replace with this one:
+<Global>
+PassivePorts 30000 35000
+after editing pres Esc button to exit insert mode.
+then type: 
+:wq
+and press enter for save and close the file and back to command.
+now we must change TCP_IN options in /etc/csf/csf.conf file.
+type:
+# vi /etc/csf/csf.conf
+type: 
+/TCP_IN and then press enter to find this line:
+TCP_IN = "20,21,22, etc..."
+edit the line by pressing i and then add ,30000:35000 before last quotation like this:
+TCP_IN = "20,21,22,...,30000:35000"
+then type: 
+:wq
+and press enter for save and close the file and back to command.
+now restart related services:
+# csf -r restart
+# service lfd restart
+# service pure-ftpd restart
+
+
+
+
+KAYNAK:   http://forum.configserver.com/viewtopic.php?t=4091

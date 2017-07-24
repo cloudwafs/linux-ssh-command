@@ -1,0 +1,91 @@
+Cron Job anlýk görüntüleme
+
+tail -f /var/log/cron
+
+#################################
+
+Task: Start cron service
+To start the cron service, use:
+# /etc/init.d/crond start
+
+OR RHEL/CentOS 5.x/6.x user:
+# service crond start
+
+OR RHEL/Centos Linux 7.x user:
+# systemctl start crond.service
+
+Task: Stop cron service
+To stop the cron service, use:
+# /etc/init.d/crond stop
+
+OR RHEL/CentOS 5.x/6.x user:
+# service crond stop
+
+OR RHEL/Centos Linux 7.x user:
+# systemctl stop crond.service
+
+Task: Restart cron service
+To restart the cron service, use:
+# /etc/init.d/crond restart
+
+OR RHEL/CentOS 5.x/6.x user:
+# service crond restart
+
+OR RHEL/Centos Linux 7.x user:
+# systemctl restart crond.service
+
+Commands for Ubuntu/Mint/Debian based Linux distro
+
+If you are using Debian or Ubuntu or Mint Linux the following commands.
+
+Task: Debian Start cron service
+To start the cron service, use:
+# /etc/init.d/cron start
+
+OR
+$ sudo /etc/init.d/cron start
+
+OR
+$ sudo service cron start
+
+Task: Debian Stop cron service
+To stop the cron service, use:
+# /etc/init.d/cron stop
+
+OR
+$ sudo /etc/init.d/cron stop
+
+OR
+$ sudo service cron stop
+
+Task: Debian Restart cron service
+To restart the cron service, use:
+# /etc/init.d/cron restart
+
+OR
+$ sudo /etc/init.d/cron restart
+
+OR
+$ sudo service cron restart
+
+Task : Start the cron service at boot time
+
+It is recommended that you start the service at boot time so that job can run w/o problems.
+
+If you are using Redhat (RHEL)/Fedora Core/Cent OS Linux use the following commands to ensure that the service remains enabled after a reboot:
+# chkconfig crond on
+
+You can use a text based GUI tool called ntsysv to enable crond service:
+# ntsysv
+
+If you are using Debian or Ubuntu Linux use the following commands to ensure that the service remains enabled after a reboot:
+# rcconf
+
+OR
+$ sudo rcconf
+
+You can use command line tool update-rc.d:
+# update-rc.d cron defaults
+
+OR
+$ sudo update-rc.d cron defaults

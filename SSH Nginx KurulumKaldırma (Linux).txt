@@ -1,0 +1,80 @@
+Nginx Admin Install instruction:
+
+cd /usr/local/src
+
+wget http://nginxcp.com/latest/nginxadmin.tar 
+
+tar xf nginxadmin.tar
+
+cd publicnginx
+
+./nginxinstaller install 
+
+/etc/init.d/httpd restart
+
+crontab -e
+
+0 */1 * * * /usr/sbin/tmpwatch -am 1 /tmp/nginx_client
+
+
+
+Nginx Admin Uninstall instruction: 
+
+ 
+
+cd /usr/local/src 
+
+wget http://nginxcp.com/latest/nginxadmin.tar 
+
+tar xf nginxadmin.tar 
+
+cd publicnginx
+
+./nginxinstaller uninstall 
+
+
+
+###########################################################################################
+
+
+Kaldırma
+---------------------------
+
+Let GO
+
+Step 1. Stop nginx
+service nginx stop
+
+Step 2. Remove package
+yum remove nginx
+
+Step 3. To uninstall Nginx from source
+rm -rf /usr/sbin/nginx
+rm -rf /etc/nginx
+rm -rf /etc/init.d/nginx
+
+Done !
+
+
+
+Kurulumu
+--------------
+
+
+# rpm -Uvh http://dl.fedoraproject.org/pub/epel/6/i386/epel-release-6-8.noarch.rpm
+# rpm -Uvh http://rpms.famillecollet.com/enterprise/remi-release-6.rpm
+Bu şekilde ilgili repolar sisteme eklenmiş oluyor.
+
+Nginx Kurulumu
+Şimdi yum üzerinden nginx kurulumu yapıyoruz:
+
+# yum install nginx
+Ardından nginx’i startup’a ekleyip ve servisi başlatıyoruz:
+
+# chkconfig nginx on
+# service nginx start
+Ben standalone iptables kullanmadığım için bu servisi kapatıyorum. Durum sizde de bu şekildeyse aşağıdaki şekilde iptables’ı devre dışı bırakın. (iptables kullanıyorsanız da 80. porta izin vermeyi unutmayın.)
+
+# service iptables stop && service ip6tables stop
+# chkconfig iptables off && chkconfig ip6tables off
+Herşey sorunsuz gittiyse, nginx çalışıyor olmalı. Durumu kontrol etmek için http://ipadresi/ şeklinde bir istekte bulunduğunuzda nginx welcome sayfasını görüntülemeniz gerekir.
