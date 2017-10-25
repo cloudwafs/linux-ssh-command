@@ -1,0 +1,17 @@
+# Uzak sunucudan locale
+rsync -ave "ssh -p 1234" root@0.0.0.0:/uzakdosyayolu/ /kendidosyayolum/      (Bu farklı bir ssh portu olursa)
+rsync -av root@0.0.0.0:/uzakdosyayolu/ /kendidosyayolum/        (Bu da ssh portu standart 22 ise yazmaya gerek yok)
+
+--------------------------------------------------------------------------------------------------------------------------
+
+# Localden uzak sunucuya
+rsync -av /kendidosyayolum/ root@0.0.0.0:/uzakdosyayolu/     (SSh portu farklı ise yukarıda ki -ave "ssh -p 1234" komutu bunun içinde geçerlidir.)
+
+--------------------------------------------------------------------------------------------------------------------------
+
+# Localde diskler arası kopyalama
+rsync -av /home/kullanici/ /media/disk/dosyadizinyolu/
+
+--------------------------------------------------------------------------------------------------------------------------
+
+Daha fazlası için: https://www.syslogs.org/rsync-ile-dizin-senkronizasyon-ve-incremental-backup-islemleri/
