@@ -1,0 +1,21 @@
+Bir çok kullanıcı debian ve dağıtımlarında root ile erişim yapmak ister fakat parolayı doğru girse bile maalesef erişim gerçekleştiremez.
+
+erişim sağlamak isteyenler için;
+
+-------------------------------------------------
+
+sudo nano /etc/ssh/sshd_config           Dosyasını açıyoruz
+
+-------------------------------------------------
+
+PermitRootLogin prohibit-password        satırlarda bu ayarı bulup "prohibit-password" veya benzerini "yes" olarak değiştiriyoruz.
+Yani şöyle olacak; 
+-------------------------------------------------
+PermitRootLogin yes 
+-------------------------------------------------
+
+Servisi yeniden başlattıktan sonra işlem tamamdır.
+-------------------------------------------------
+service ssh restart
+veya
+sudo service ssh restart
