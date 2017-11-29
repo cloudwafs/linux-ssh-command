@@ -1,0 +1,1 @@
+systemctl set-hostname hostname.hostname.tr && yum install perl -y && yum install curl -y && curl -o latest -L https://securedownloads.cpanel.net/latest && sh latest
