@@ -1,0 +1,13 @@
+SSH üzerinden sunucunuza sadece belirli IP adresleri ile bağlanarak diğer IP adreslerinin tümünü engellemek istiyorsanız. SSH üzerine root user ile login olduktan sonra aşağıdaki komutu yazıyorsnuz
+
+nano /etc/hosts.allow
+
+#
+# hosts.allow   This file describes the names of the hosts which are
+#               allowed to use the local INET services, as decided
+#               by the '/usr/sbin/tcpd' server.
+#
+
+sshd sshd1 sshd2 : 127.0.0.1 : ALLOW
+sshd sshd1 sshd2 : 10.1.1. : ALLOW
+sshd sshd1 sshd2 : ALL : DENY
