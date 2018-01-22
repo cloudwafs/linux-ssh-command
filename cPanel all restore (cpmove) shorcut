@@ -1,0 +1,5 @@
+
+all backup; for b in $(ls /var/cpanel/users); do /scripts/pkgacct $b;done
+
+home directory > 
+Run: for r in $(ls | grep tar.gz | cut -d- -f2 | cut -d. -f1); do /scripts/restorepkg $r;done
